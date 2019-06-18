@@ -34,6 +34,27 @@ public class App {
 		veiculoService.cadastrar(meuCarro2);
 
 		assert 2 == gol.getQuantidadeVeiculos();
+		
+		Modelo voyage = new Modelo("Voyage", vw);
+		modeloService.cadastrar(voyage);
+
+		Veiculo meuCarro3 = new Veiculo("Prata", 2019, voyage);
+		veiculoService.cadastrar(meuCarro3);
+		
+		assert 3 == vw.getQuantidadeVeiculos();
+		
+		Marca fiat = new Marca("FIAT");
+		marcaService.cadastrar(fiat);
+
+		Modelo palio = new Modelo("Palio", fiat);
+		modeloService.cadastrar(palio);
+		
+		Veiculo meuCarro4 = new Veiculo("Preto", 2018, palio);
+		veiculoService.cadastrar(meuCarro4);
+
+		assert 2 == Marca.getQuantidadeMarcas();
+		assert 3 == Modelo.getQuantidadeModelos();
+		assert 4 == Veiculo.getQuantidadeVeiculos();
 	}
 	
 	

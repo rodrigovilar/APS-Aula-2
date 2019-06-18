@@ -2,11 +2,15 @@ package br.ufpb.dcx.aps.aula2;
 
 public class Marca {
 
+	private static int quantidadeMarcas = 0;
+
 	private String nome;
 	private int quantidadeModelos = 0;
+	private int quantidadeVeiculos = 0;
 
 	public Marca(String nome) {
 		this.nome = nome;
+		quantidadeMarcas++;
 	}
 
 	public String getNome() {
@@ -29,5 +33,22 @@ public class Marca {
 	public void novoModelo() {
 		quantidadeModelos++;
 	}
+
+	public int getQuantidadeVeiculos() {
+		return quantidadeVeiculos;
+	}
+
+	public void novoVeiculo() {
+		quantidadeVeiculos++;
+	}
 	
+	public static int getQuantidadeMarcas() {
+		return quantidadeMarcas ;
+	}
 }
+
+
+
+
+
+

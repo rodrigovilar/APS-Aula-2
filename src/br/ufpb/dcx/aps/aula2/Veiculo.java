@@ -2,6 +2,8 @@ package br.ufpb.dcx.aps.aula2;
 
 public class Veiculo {
 
+	private static int quantidadeVeiculos;
+	
 	private String cor;
 	private Modelo modelo;
 	private int ano;
@@ -10,6 +12,7 @@ public class Veiculo {
 		this.cor = cor;
 		this.ano = ano;
 		this.modelo = modelo;
+		quantidadeVeiculos++;
 	}
 
 	public String getCor() {
@@ -39,6 +42,10 @@ public class Veiculo {
 	@Override
 	public String toString() {
 		return "Veiculo [cor=" + cor + ", ano=" + ano + ", modelo=" + modelo + "]";
+	}
+
+	public static int getQuantidadeVeiculos() {
+		return quantidadeVeiculos;
 	}
 
 }
