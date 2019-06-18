@@ -3,8 +3,8 @@ package br.ufpb.dcx.aps.aula2;
 public class App {
 	
 	private static GenericService<Marca> marcaService = new GenericService<Marca>();
-	private static ModeloService modeloService = new ModeloService();
-	private static VeiculoService veiculoService = new VeiculoService();
+	private static GenericService<Modelo> modeloService = new GenericService<Modelo>();
+	private static GenericService<Veiculo> veiculoService = new GenericService<Veiculo>();
 
 	public static void main(String[] args) {
 		Marca vw = new Marca("Volkswagen");
@@ -52,9 +52,9 @@ public class App {
 		Veiculo meuCarro4 = new Veiculo("Preto", 2018, palio);
 		veiculoService.cadastrar(meuCarro4);
 
-		assert 2 == Marca.getQuantidadeMarcas();
-		assert 3 == Modelo.getQuantidadeModelos();
-		assert 4 == Veiculo.getQuantidadeVeiculos();
+		assert 2 == marcaService.getQuantidade();
+		assert 3 == modeloService.getQuantidade();
+		assert 4 == veiculoService.getQuantidade();
 	}
 	
 	
