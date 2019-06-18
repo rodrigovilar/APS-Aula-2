@@ -4,6 +4,7 @@ public class Modelo {
 
 	private String nome;
 	private Marca marca;
+	private int quantidadeVeiculos = 0;
 
 	public Modelo(String nome, Marca marca) {
 		this.nome = nome;
@@ -29,6 +30,14 @@ public class Modelo {
 	@Override
 	public String toString() {
 		return "Modelo [nome=" + nome + ", marca=" + marca + "]";
+	}
+
+	public int getQuantidadeVeiculos() {
+		return quantidadeVeiculos;
+	}
+
+	public void novoVeiculo() {
+		quantidadeVeiculos++;
 	}
 
 }

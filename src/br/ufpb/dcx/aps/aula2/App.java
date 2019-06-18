@@ -4,6 +4,7 @@ public class App {
 	
 	private static GenericService<Marca> marcaService = new GenericService<Marca>();
 	private static ModeloService modeloService = new ModeloService();
+	private static VeiculoService veiculoService = new VeiculoService();
 
 	public static void main(String[] args) {
 		Marca vw = new Marca("Volkswagen");
@@ -20,6 +21,19 @@ public class App {
 			.equals(golRetornado.toString());
 		
 		assert 1 == vw.getQuantidadeModelos();
+		
+		Veiculo meuCarro = new Veiculo("Branco", 2012, gol);
+		int meuCarroId = veiculoService.cadastrar(meuCarro);
+		Veiculo meuCarroRetornado = veiculoService.get(meuCarroId);
+		
+		assert ("Veiculo [cor=Branco, ano=2012, modelo="
+				+ "Modelo [nome=Gol, marca=Marca [nome=Volkswagen]]]")
+			.equals(meuCarroRetornado.toString());
+
+		Veiculo meuCarro2 = new Veiculo("Vermelho", 1990, gol);
+		veiculoService.cadastrar(meuCarro2);
+
+		assert 2 == gol.getQuantidadeVeiculos();
 	}
 	
 	
