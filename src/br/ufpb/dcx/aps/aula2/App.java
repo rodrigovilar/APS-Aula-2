@@ -1,5 +1,7 @@
 package br.ufpb.dcx.aps.aula2;
 
+import br.ufpb.dcx.aps.aula2.dao.FabricaDAOREST;
+
 public class App {
 	
 	private static GenericService<Marca> marcaService = new GenericService<Marca>();
@@ -7,6 +9,11 @@ public class App {
 	private static GenericService<Veiculo> veiculoService = new GenericService<Veiculo>();
 
 	public static void main(String[] args) {
+		LogicaApp logica = new LogicaApp(new FabricaDAOREST());
+		logica.rodar();
+	}
+	
+	public static void main2(String[] args) {
 		Marca vw = new Marca("Volkswagen");
 		int vwId = marcaService.cadastrar(vw);
 		Marca vwRetornada = marcaService.get(vwId);
